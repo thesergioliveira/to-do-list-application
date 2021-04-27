@@ -55,6 +55,15 @@ const addToList = () => {
   }
 };
 
+const keyCheck = (event) => {
+  if (event.key == "Enter") {
+    console.log(event);
+    addToList();
+  }
+};
+const userInput = document.querySelector("#userData");
+userInput.addEventListener("keypress", keyCheck);
+
 const colorGen = () => {
   let result = "#";
   let colorCode = "0123456789ABCDEF";
