@@ -10,7 +10,9 @@ const create = () => {
   document.body.appendChild(newElement);
 };
 
-const addToList = () => {
+const addToList = (event) => {
+  event.preventDefault();
+
   let userData = document.querySelector("#userData").value;
   //   console.log(userData);
   if (userData != "") {
@@ -73,3 +75,5 @@ const colorGen = () => {
 
   return result;
 };
+
+document.querySelector("form").addEventListener("submit", addToList);
