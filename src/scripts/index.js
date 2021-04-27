@@ -20,6 +20,9 @@ const addToList = () => {
     let text = document.createTextNode(userData);
     //injecting text
     newLi.appendChild(text);
+    //applying color to text
+    console.log(text);
+    newLi.style.color = colorGen();
     document.querySelector(".result").appendChild(newLi);
     //emptying the text area
     document.querySelector("#userData").value = "";
@@ -27,4 +30,14 @@ const addToList = () => {
     document.querySelector("#userData").placeholder =
       "Please, enter text first";
   }
+};
+
+const colorGen = () => {
+  let result = "#";
+  let colorCode = "0123456789ABCDEF";
+  for (let i = 0; i < 6; i++) {
+    result += colorCode[Math.floor(Math.random() * 16)];
+  }
+
+  return result;
 };
