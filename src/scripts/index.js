@@ -20,12 +20,29 @@ const addToList = () => {
     let text = document.createTextNode(userData);
     //injecting text
     newLi.appendChild(text);
-    //applying color to text
-    console.log(text);
+    //applying color to list item
     newLi.style.color = colorGen();
+    //applying new random color to all list item whenever the function is activated
+    const listItems = document.querySelectorAll("li");
+    listItems.forEach((item) => {
+      item.style.color = colorGen();
+    });
     document.querySelector(".result").appendChild(newLi);
     //emptying the text area
     document.querySelector("#userData").value = "";
+
+    //Creating the container and the buttons elements for the to-do-list app, on Js
+    const newContainer = document.createElement("div");
+    const doneButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
+    //styling the buttons
+    doneButton.innerHTML = "✔";
+    deleteButton.innerHTML = "✗";
+    //Appending the created elements into the container
+    newContainer.appendChild(doneButton);
+    newContainer.appendChild(deleteButton);
+    //Appending the container into the newLi element which was already appended into the body
+    newLi.appendChild(newContainer);
   } else {
     document.querySelector("#userData").placeholder =
       "Please, enter text first";
