@@ -43,6 +43,12 @@ const addToList = () => {
     newContainer.appendChild(deleteButton);
     //Appending the container into the newLi element which was already appended into the body
     newLi.appendChild(newContainer);
+
+    const check = () => newLi.classList.toggle("completed");
+    const del = () => newLi.remove();
+
+    deleteButton.addEventListener("click", del);
+    doneButton.addEventListener("click", check);
   } else {
     document.querySelector("#userData").placeholder =
       "Please, enter text first";
